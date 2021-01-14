@@ -1,0 +1,17 @@
+#4000
+R15 = 0x53
+UCSRA = 0b10000000
+#2000
+R15 = 0x31
+UCSRA = 0b10000000
+#4000
+R15 = 0x0D
+UCSRA = 0b10000000
+#2000
+UCSRA = 0b10000000
+R15 = 0x0A
+
+$log TCNT2
+$startlog lab8.log
+#10000
+$stoplog

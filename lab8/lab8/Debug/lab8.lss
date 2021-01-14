@@ -1,0 +1,818 @@
+
+lab8.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000478  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000004  00800060  00000478  0000050c  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          0000000b  00800064  00800064  00000510  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000510  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000540  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000080  00000000  00000000  0000057c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000885  00000000  00000000  000005fc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 0000065f  00000000  00000000  00000e81  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000653  00000000  00000000  000014e0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000150  00000000  00000000  00001b34  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000414  00000000  00000000  00001c84  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    000001fd  00000000  00000000  00002098  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000070  00000000  00000000  00002295  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 91 01 	jmp	0x322	; 0x322 <__vector_8>
+  24:	0c 94 a6 01 	jmp	0x34c	; 0x34c <__vector_9>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 b6 01 	jmp	0x36c	; 0x36c <__vector_11>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e8 e7       	ldi	r30, 0x78	; 120
+  68:	f4 e0       	ldi	r31, 0x04	; 4
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	a4 36       	cpi	r26, 0x64	; 100
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	20 e0       	ldi	r18, 0x00	; 0
+  78:	a4 e6       	ldi	r26, 0x64	; 100
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	af 36       	cpi	r26, 0x6F	; 111
+  82:	b2 07       	cpc	r27, r18
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 d6 00 	call	0x1ac	; 0x1ac <main>
+  8a:	0c 94 3a 02 	jmp	0x474	; 0x474 <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <TCNT0_INIT>:
+uint8_t current_proc = 0;
+uint8_t func_enable = 0x00;
+uint8_t func_num[3] = {FALSE, FALSE, FALSE};
+
+void TCNT0_INIT(){
+	TCNT0 = 0x63;					// Set TCNT0 the value of 99(0x63) = 255 - (1 ms)*(1 MHz)/64(prescale)
+  92:	83 e6       	ldi	r24, 0x63	; 99
+  94:	82 bf       	out	0x32, r24	; 50
+	TCCR0 = (1<<CS01)|(1<<CS00);	//Set prescale 64 - these bits of TCCR0 are set - CS02 = 0  CS01 = 1  CS00 = 1
+  96:	83 e0       	ldi	r24, 0x03	; 3
+  98:	83 bf       	out	0x33, r24	; 51
+	TIMSK |= (1<<TOIE0);			// TOIE1 is set to 1 in order to enable the timer overflow interrupt
+  9a:	89 b7       	in	r24, 0x39	; 57
+  9c:	81 60       	ori	r24, 0x01	; 1
+  9e:	89 bf       	out	0x39, r24	; 57
+	
+	DDRA = 0xFF;	//Set as output PORTA AND PORT C
+  a0:	8f ef       	ldi	r24, 0xFF	; 255
+  a2:	8a bb       	out	0x1a, r24	; 26
+	PORTA = 0x00;	//Initialize PORTC with 0x00 WHICH mean that none of the digits has enable
+  a4:	1b ba       	out	0x1b, r1	; 27
+  a6:	08 95       	ret
+
+000000a8 <TCNT1_INIT>:
+	
+	return;
+}
+
+void TCNT1_INIT(){
+	TCNT1 = 0xC2F6;		//0xF2F6;
+  a8:	86 ef       	ldi	r24, 0xF6	; 246
+  aa:	92 ec       	ldi	r25, 0xC2	; 194
+  ac:	9d bd       	out	0x2d, r25	; 45
+  ae:	8c bd       	out	0x2c, r24	; 44
+	TCCR1A = 0x00;
+  b0:	1f bc       	out	0x2f, r1	; 47
+	TCCR1B = (1<<CS11)|(1<<CS10);	// Timer mode with 64 prescaler - these bits of TCCR1B are set - CS12 = 0  CS11 = 1  CS10 = 1
+  b2:	83 e0       	ldi	r24, 0x03	; 3
+  b4:	8e bd       	out	0x2e, r24	; 46
+	
+	TIMSK |= (1 << TOIE1);   // Enable timer1 overflow interrupt(TOIE1)
+  b6:	89 b7       	in	r24, 0x39	; 57
+  b8:	84 60       	ori	r24, 0x04	; 4
+  ba:	89 bf       	out	0x39, r24	; 57
+  bc:	08 95       	ret
+
+000000be <USART_INIT>:
+	return;
+}
+
+void USART_INIT(unsigned int ubrr){
+	
+	UCSRB = (1<<RXCIE)|(1<<RXEN)|(1<<TXEN);		//Enable RXC interrupts, Receive and Transmit
+  be:	28 e9       	ldi	r18, 0x98	; 152
+  c0:	2a b9       	out	0x0a, r18	; 10
+	UBRRH = (unsigned char)(ubrr>>8);		// Set baud rate
+  c2:	90 bd       	out	0x20, r25	; 32
+	UBRRL = (unsigned char)ubrr;
+  c4:	89 b9       	out	0x09, r24	; 9
+	
+	UCSRC = (1<<URSEL);					// We make it "1" in order to write to UCSRC
+  c6:	80 e8       	ldi	r24, 0x80	; 128
+  c8:	80 bd       	out	0x20, r24	; 32
+	UCSRC = (1<<UCSZ0)|(1<<UCSZ1);		//8-bit size for everything we transmit and receive
+  ca:	86 e0       	ldi	r24, 0x06	; 6
+  cc:	80 bd       	out	0x20, r24	; 32
+  ce:	08 95       	ret
+
+000000d0 <USART_TRANSMIT>:
+	
+	return;
+}
+
+void USART_TRANSMIT(){
+  d0:	e0 e6       	ldi	r30, 0x60	; 96
+  d2:	f0 e0       	ldi	r31, 0x00	; 0
+  d4:	24 e6       	ldi	r18, 0x64	; 100
+  d6:	30 e0       	ldi	r19, 0x00	; 0
+	
+	for(uint8_t i=0; i<4; i++){
+		while (!( UCSRA & (1<<UDRE)));
+  d8:	5d 9b       	sbis	0x0b, 5	; 11
+  da:	fe cf       	rjmp	.-4      	; 0xd8 <USART_TRANSMIT+0x8>
+		//UDR = OK_MSG[i];
+		TCNT2 = OK_MSG[i];
+  dc:	81 91       	ld	r24, Z+
+  de:	84 bd       	out	0x24, r24	; 36
+	return;
+}
+
+void USART_TRANSMIT(){
+	
+	for(uint8_t i=0; i<4; i++){
+  e0:	e2 17       	cp	r30, r18
+  e2:	f3 07       	cpc	r31, r19
+  e4:	c9 f7       	brne	.-14     	; 0xd8 <USART_TRANSMIT+0x8>
+		while (!( UCSRA & (1<<UDRE)));
+		//UDR = OK_MSG[i];
+		TCNT2 = OK_MSG[i];
+	}
+	prev_instr_char = 0x00;
+  e6:	10 92 6e 00 	sts	0x006E, r1	; 0x80006e <prev_instr_char>
+  ea:	08 95       	ret
+
+000000ec <USART_RECEIVE>:
+}
+
+uint8_t USART_RECEIVE(){
+	uint8_t received_data;
+	
+	while (!(UCSRA & (1<<RXC)));
+  ec:	5f 9b       	sbis	0x0b, 7	; 11
+  ee:	fe cf       	rjmp	.-4      	; 0xec <USART_RECEIVE>
+	received_data = UDR;
+  f0:	8c b1       	in	r24, 0x0c	; 12
+	received_data = UDR;
+  f2:	8c b1       	in	r24, 0x0c	; 12
+	received_data = input_char;
+	
+	return received_data;
+}
+  f4:	8f 2d       	mov	r24, r15
+  f6:	08 95       	ret
+
+000000f8 <Process_1>:
+
+void Process_1(){
+	if(timer_flag == TRUE){
+  f8:	80 91 6a 00 	lds	r24, 0x006A	; 0x80006a <timer_flag>
+  fc:	81 30       	cpi	r24, 0x01	; 1
+  fe:	61 f0       	breq	.+24     	; 0x118 <Process_1+0x20>
+		return;
+	}else{
+		if(PORTA == 0x00){
+ 100:	8b b3       	in	r24, 0x1b	; 27
+ 102:	81 11       	cpse	r24, r1
+ 104:	03 c0       	rjmp	.+6      	; 0x10c <Process_1+0x14>
+			PORTA = 0b10101010; //Initialize first time with tis value
+ 106:	8a ea       	ldi	r24, 0xAA	; 170
+ 108:	8b bb       	out	0x1b, r24	; 27
+ 10a:	03 c0       	rjmp	.+6      	; 0x112 <Process_1+0x1a>
+		}else{
+			PORTA =~ PORTA;		//Inverse all bits every other time
+ 10c:	8b b3       	in	r24, 0x1b	; 27
+ 10e:	80 95       	com	r24
+ 110:	8b bb       	out	0x1b, r24	; 27
+		}
+		timer_flag = TRUE;		//Don't change the output until timer0 makes it false
+ 112:	81 e0       	ldi	r24, 0x01	; 1
+ 114:	80 93 6a 00 	sts	0x006A, r24	; 0x80006a <timer_flag>
+ 118:	08 95       	ret
+
+0000011a <Process_2>:
+	}
+	return;
+}
+
+void Process_2(){
+	if(timer_flag == TRUE){
+ 11a:	80 91 6a 00 	lds	r24, 0x006A	; 0x80006a <timer_flag>
+ 11e:	81 30       	cpi	r24, 0x01	; 1
+ 120:	79 f0       	breq	.+30     	; 0x140 <Process_2+0x26>
+		return;
+	}else{
+		if(PORTA == 0x00 || PORTA == 0x80){	//Initialize the first time and when "1" reach the 8th bit
+ 122:	8b b3       	in	r24, 0x1b	; 27
+ 124:	88 23       	and	r24, r24
+ 126:	19 f0       	breq	.+6      	; 0x12e <Process_2+0x14>
+ 128:	8b b3       	in	r24, 0x1b	; 27
+ 12a:	80 38       	cpi	r24, 0x80	; 128
+ 12c:	19 f4       	brne	.+6      	; 0x134 <Process_2+0x1a>
+			PORTA = 0x01;		
+ 12e:	81 e0       	ldi	r24, 0x01	; 1
+ 130:	8b bb       	out	0x1b, r24	; 27
+ 132:	03 c0       	rjmp	.+6      	; 0x13a <Process_2+0x20>
+		}else{
+			PORTA = (PORTA<<1); //Shift "1" to left 
+ 134:	8b b3       	in	r24, 0x1b	; 27
+ 136:	88 0f       	add	r24, r24
+ 138:	8b bb       	out	0x1b, r24	; 27
+		}
+		timer_flag = TRUE;	//Don't change the output until timer0 makes it false
+ 13a:	81 e0       	ldi	r24, 0x01	; 1
+ 13c:	80 93 6a 00 	sts	0x006A, r24	; 0x80006a <timer_flag>
+ 140:	08 95       	ret
+
+00000142 <Process_3>:
+	}
+	return;
+}
+
+void Process_3(){
+	if(timer_flag == TRUE){
+ 142:	80 91 6a 00 	lds	r24, 0x006A	; 0x80006a <timer_flag>
+ 146:	81 30       	cpi	r24, 0x01	; 1
+ 148:	59 f0       	breq	.+22     	; 0x160 <Process_3+0x1e>
+		return;
+	}else{
+		if(PORTA == 0xFF){	//Implementation of a simple counter that counts from 0x00 to 0xFF
+ 14a:	8b b3       	in	r24, 0x1b	; 27
+ 14c:	8f 3f       	cpi	r24, 0xFF	; 255
+ 14e:	11 f4       	brne	.+4      	; 0x154 <Process_3+0x12>
+			PORTA = 0x00;
+ 150:	1b ba       	out	0x1b, r1	; 27
+ 152:	08 95       	ret
+		}else{
+			PORTA += 0x01;
+ 154:	8b b3       	in	r24, 0x1b	; 27
+ 156:	8f 5f       	subi	r24, 0xFF	; 255
+ 158:	8b bb       	out	0x1b, r24	; 27
+			timer_flag = TRUE;	//Don't change the output until timer0 makes it false
+ 15a:	81 e0       	ldi	r24, 0x01	; 1
+ 15c:	80 93 6a 00 	sts	0x006A, r24	; 0x80006a <timer_flag>
+ 160:	08 95       	ret
+
+00000162 <CHECK_ENABLES>:
+	}
+	return;
+}
+
+void CHECK_ENABLES(){		//Checking if there are changes on function's enables
+	if((func_enable & (1<<0))){
+ 162:	80 91 67 00 	lds	r24, 0x0067	; 0x800067 <func_enable>
+ 166:	80 ff       	sbrs	r24, 0
+ 168:	04 c0       	rjmp	.+8      	; 0x172 <CHECK_ENABLES+0x10>
+		func_num[0] = TRUE;
+ 16a:	81 e0       	ldi	r24, 0x01	; 1
+ 16c:	80 93 64 00 	sts	0x0064, r24	; 0x800064 <__data_end>
+ 170:	04 c0       	rjmp	.+8      	; 0x17a <CHECK_ENABLES+0x18>
+	}else{
+		func_num[0] = FALSE;
+ 172:	10 92 64 00 	sts	0x0064, r1	; 0x800064 <__data_end>
+		process_data_1 = 0x00;
+ 176:	10 92 6d 00 	sts	0x006D, r1	; 0x80006d <process_data_1>
+	}
+	
+	if((func_enable & (1<<1))){
+ 17a:	80 91 67 00 	lds	r24, 0x0067	; 0x800067 <func_enable>
+ 17e:	81 ff       	sbrs	r24, 1
+ 180:	04 c0       	rjmp	.+8      	; 0x18a <CHECK_ENABLES+0x28>
+		func_num[1] = TRUE;
+ 182:	81 e0       	ldi	r24, 0x01	; 1
+ 184:	80 93 65 00 	sts	0x0065, r24	; 0x800065 <__data_end+0x1>
+ 188:	04 c0       	rjmp	.+8      	; 0x192 <CHECK_ENABLES+0x30>
+	}else{
+		func_num[1] = FALSE;
+ 18a:	10 92 65 00 	sts	0x0065, r1	; 0x800065 <__data_end+0x1>
+		process_data_2 = 0x00;
+ 18e:	10 92 6c 00 	sts	0x006C, r1	; 0x80006c <process_data_2>
+	}
+	
+	if((func_enable & (1<<2))){
+ 192:	80 91 67 00 	lds	r24, 0x0067	; 0x800067 <func_enable>
+ 196:	82 ff       	sbrs	r24, 2
+ 198:	04 c0       	rjmp	.+8      	; 0x1a2 <CHECK_ENABLES+0x40>
+		func_num[2] = TRUE;
+ 19a:	81 e0       	ldi	r24, 0x01	; 1
+ 19c:	80 93 66 00 	sts	0x0066, r24	; 0x800066 <__data_end+0x2>
+ 1a0:	08 95       	ret
+	}else{
+		func_num[2] = FALSE;
+ 1a2:	10 92 66 00 	sts	0x0066, r1	; 0x800066 <__data_end+0x2>
+		process_data_3 = 0x00;
+ 1a6:	10 92 6b 00 	sts	0x006B, r1	; 0x80006b <process_data_3>
+ 1aa:	08 95       	ret
+
+000001ac <main>:
+	}
+	return;
+}
+
+int main(void){
+	cli();						//Turn off interrupts before initialization
+ 1ac:	f8 94       	cli
+	TCNT0_INIT();				//Init the timer0
+ 1ae:	0e 94 49 00 	call	0x92	; 0x92 <TCNT0_INIT>
+	TCNT1_INIT();
+ 1b2:	0e 94 54 00 	call	0xa8	; 0xa8 <TCNT1_INIT>
+	USART_INIT(UBRR_BAUD);		//Init the usart
+ 1b6:	80 e4       	ldi	r24, 0x40	; 64
+ 1b8:	90 e0       	ldi	r25, 0x00	; 0
+ 1ba:	0e 94 5f 00 	call	0xbe	; 0xbe <USART_INIT>
+	sei();						//Enable interrupts after initilization
+ 1be:	78 94       	sei
+				}else{
+					current_proc = 2;	//Only No2 is enabled
+				}
+				context_switch_flag = FALSE;
+			}
+		}else if(func_num[2] == TRUE  && current_proc == 3){
+ 1c0:	c4 e6       	ldi	r28, 0x64	; 100
+ 1c2:	d0 e0       	ldi	r29, 0x00	; 0
+				}else if(func_num[0] == TRUE){	//Next process is No1
+					process_data_3 = PORTA;		// Store PORTA to process_data_1
+					PORTA = process_data_1;		// Display process_data_3 to PORTA
+					current_proc = 1;
+				}else{
+					current_proc = 3;	//Only No1 is enabled
+ 1c4:	0f 2e       	mov	r0, r31
+ 1c6:	f3 e0       	ldi	r31, 0x03	; 3
+ 1c8:	ef 2e       	mov	r14, r31
+ 1ca:	f0 2d       	mov	r31, r0
+					current_proc = 2;
+					
+				}else if(func_num[0] == TRUE){	//Next process is No1
+					process_data_3 = PORTA;		// Store PORTA to process_data_1
+					PORTA = process_data_1;		// Display process_data_3 to PORTA
+					current_proc = 1;
+ 1cc:	11 e0       	ldi	r17, 0x01	; 1
+			if(context_switch_flag == TRUE){				
+				CHECK_ENABLES();									//Changing enables
+				if(func_num[1] == TRUE && func_num[0] == FALSE){	//Only process 2 and 3 are enabled
+					process_data_3 = PORTA;							// Store PORTA to process_data_2
+					PORTA = process_data_2;							// Display process_data_1 to PORTA
+					current_proc = 2;
+ 1ce:	02 e0       	ldi	r16, 0x02	; 2
+	TCNT1_INIT();
+	USART_INIT(UBRR_BAUD);		//Init the usart
+	sei();						//Enable interrupts after initilization
+	
+	while (1){
+		if(current_proc == 0){	// The first time we check which function is enabled
+ 1d0:	80 91 68 00 	lds	r24, 0x0068	; 0x800068 <current_proc>
+ 1d4:	81 11       	cpse	r24, r1
+ 1d6:	15 c0       	rjmp	.+42     	; 0x202 <main+0x56>
+			CHECK_ENABLES();
+ 1d8:	0e 94 b1 00 	call	0x162	; 0x162 <CHECK_ENABLES>
+			if(func_num[0] == TRUE){
+ 1dc:	88 81       	ld	r24, Y
+ 1de:	81 30       	cpi	r24, 0x01	; 1
+ 1e0:	19 f4       	brne	.+6      	; 0x1e8 <main+0x3c>
+				current_proc = 1;
+ 1e2:	10 93 68 00 	sts	0x0068, r17	; 0x800068 <current_proc>
+ 1e6:	14 c0       	rjmp	.+40     	; 0x210 <main+0x64>
+			}else if(func_num[1] == TRUE){
+ 1e8:	89 81       	ldd	r24, Y+1	; 0x01
+ 1ea:	81 30       	cpi	r24, 0x01	; 1
+ 1ec:	19 f4       	brne	.+6      	; 0x1f4 <main+0x48>
+				current_proc = 2;
+ 1ee:	00 93 68 00 	sts	0x0068, r16	; 0x800068 <current_proc>
+ 1f2:	38 c0       	rjmp	.+112    	; 0x264 <main+0xb8>
+			}else if(func_num[2] == TRUE){
+ 1f4:	8a 81       	ldd	r24, Y+2	; 0x02
+ 1f6:	81 30       	cpi	r24, 0x01	; 1
+ 1f8:	09 f0       	breq	.+2      	; 0x1fc <main+0x50>
+ 1fa:	61 c0       	rjmp	.+194    	; 0x2be <main+0x112>
+				current_proc = 3;
+ 1fc:	e0 92 68 00 	sts	0x0068, r14	; 0x800068 <current_proc>
+ 200:	5e c0       	rjmp	.+188    	; 0x2be <main+0x112>
+			}
+		}
+		if(func_num[0] == TRUE && current_proc == 1){
+ 202:	88 81       	ld	r24, Y
+ 204:	81 30       	cpi	r24, 0x01	; 1
+ 206:	59 f5       	brne	.+86     	; 0x25e <main+0xb2>
+ 208:	80 91 68 00 	lds	r24, 0x0068	; 0x800068 <current_proc>
+ 20c:	81 30       	cpi	r24, 0x01	; 1
+ 20e:	39 f5       	brne	.+78     	; 0x25e <main+0xb2>
+			Process_1();
+ 210:	0e 94 7c 00 	call	0xf8	; 0xf8 <Process_1>
+			if(context_switch_flag == TRUE){
+ 214:	80 91 69 00 	lds	r24, 0x0069	; 0x800069 <context_switch_flag>
+ 218:	81 30       	cpi	r24, 0x01	; 1
+ 21a:	d1 f6       	brne	.-76     	; 0x1d0 <main+0x24>
+				CHECK_ENABLES();				//Changing enables
+ 21c:	0e 94 b1 00 	call	0x162	; 0x162 <CHECK_ENABLES>
+				if(func_num[1] == TRUE){		// Next proccess is No2
+ 220:	89 81       	ldd	r24, Y+1	; 0x01
+ 222:	81 30       	cpi	r24, 0x01	; 1
+ 224:	49 f4       	brne	.+18     	; 0x238 <main+0x8c>
+					process_data_1 = PORTA;		// Store PORTA to process_data_1
+ 226:	8b b3       	in	r24, 0x1b	; 27
+ 228:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <process_data_1>
+					PORTA = process_data_2;		// Display process_data_2 to PORTA
+ 22c:	80 91 6c 00 	lds	r24, 0x006C	; 0x80006c <process_data_2>
+ 230:	8b bb       	out	0x1b, r24	; 27
+					current_proc = 2;
+ 232:	00 93 68 00 	sts	0x0068, r16	; 0x800068 <current_proc>
+ 236:	10 c0       	rjmp	.+32     	; 0x258 <main+0xac>
+					
+				}else if(func_num[2] == TRUE && func_num[1] == FALSE){	//Only 1 and 3 are enabled
+ 238:	9a 81       	ldd	r25, Y+2	; 0x02
+ 23a:	91 30       	cpi	r25, 0x01	; 1
+ 23c:	59 f4       	brne	.+22     	; 0x254 <main+0xa8>
+ 23e:	81 11       	cpse	r24, r1
+ 240:	09 c0       	rjmp	.+18     	; 0x254 <main+0xa8>
+					process_data_1 = PORTA;								// Store PORTA to process_data_1
+ 242:	8b b3       	in	r24, 0x1b	; 27
+ 244:	80 93 6d 00 	sts	0x006D, r24	; 0x80006d <process_data_1>
+					PORTA = process_data_3;								// Display process_data_2 to PORTA
+ 248:	80 91 6b 00 	lds	r24, 0x006B	; 0x80006b <process_data_3>
+ 24c:	8b bb       	out	0x1b, r24	; 27
+					current_proc = 3;
+ 24e:	e0 92 68 00 	sts	0x0068, r14	; 0x800068 <current_proc>
+ 252:	02 c0       	rjmp	.+4      	; 0x258 <main+0xac>
+				}else{
+					current_proc = 1;	//Only No1 is enabled
+ 254:	10 93 68 00 	sts	0x0068, r17	; 0x800068 <current_proc>
+				}
+				context_switch_flag = FALSE;
+ 258:	10 92 69 00 	sts	0x0069, r1	; 0x800069 <context_switch_flag>
+ 25c:	b9 cf       	rjmp	.-142    	; 0x1d0 <main+0x24>
+			}
+		}else if(func_num[1] == TRUE  && current_proc == 2){
+ 25e:	89 81       	ldd	r24, Y+1	; 0x01
+ 260:	81 30       	cpi	r24, 0x01	; 1
+ 262:	69 f5       	brne	.+90     	; 0x2be <main+0x112>
+ 264:	80 91 68 00 	lds	r24, 0x0068	; 0x800068 <current_proc>
+ 268:	82 30       	cpi	r24, 0x02	; 2
+ 26a:	49 f5       	brne	.+82     	; 0x2be <main+0x112>
+			Process_2();
+ 26c:	0e 94 8d 00 	call	0x11a	; 0x11a <Process_2>
+			if(context_switch_flag == TRUE){
+ 270:	80 91 69 00 	lds	r24, 0x0069	; 0x800069 <context_switch_flag>
+ 274:	81 30       	cpi	r24, 0x01	; 1
+ 276:	09 f0       	breq	.+2      	; 0x27a <main+0xce>
+ 278:	ab cf       	rjmp	.-170    	; 0x1d0 <main+0x24>
+				CHECK_ENABLES();									//Changing enables
+ 27a:	0e 94 b1 00 	call	0x162	; 0x162 <CHECK_ENABLES>
+				if(func_num[0] == TRUE && func_num[2] == FALSE){	//Only process 1 and 2 are enabled
+ 27e:	88 81       	ld	r24, Y
+ 280:	81 30       	cpi	r24, 0x01	; 1
+ 282:	61 f4       	brne	.+24     	; 0x29c <main+0xf0>
+ 284:	8a 81       	ldd	r24, Y+2	; 0x02
+ 286:	81 11       	cpse	r24, r1
+ 288:	09 c0       	rjmp	.+18     	; 0x29c <main+0xf0>
+					process_data_2 = PORTA;							// Store PORTA to process_data_2
+ 28a:	8b b3       	in	r24, 0x1b	; 27
+ 28c:	80 93 6c 00 	sts	0x006C, r24	; 0x80006c <process_data_2>
+					PORTA = process_data_1;							// Display process_data_1 to PORTA
+ 290:	80 91 6d 00 	lds	r24, 0x006D	; 0x80006d <process_data_1>
+ 294:	8b bb       	out	0x1b, r24	; 27
+					current_proc = 1;
+ 296:	10 93 68 00 	sts	0x0068, r17	; 0x800068 <current_proc>
+ 29a:	0e c0       	rjmp	.+28     	; 0x2b8 <main+0x10c>
+					
+				}else if(func_num[2] == TRUE){	//Next process is No3
+ 29c:	8a 81       	ldd	r24, Y+2	; 0x02
+ 29e:	81 30       	cpi	r24, 0x01	; 1
+ 2a0:	49 f4       	brne	.+18     	; 0x2b4 <main+0x108>
+					process_data_2 = PORTA;		// Store PORTA to process_data_1
+ 2a2:	8b b3       	in	r24, 0x1b	; 27
+ 2a4:	80 93 6c 00 	sts	0x006C, r24	; 0x80006c <process_data_2>
+					PORTA = process_data_3;		// Display process_data_3 to PORTA
+ 2a8:	80 91 6b 00 	lds	r24, 0x006B	; 0x80006b <process_data_3>
+ 2ac:	8b bb       	out	0x1b, r24	; 27
+					current_proc = 3;
+ 2ae:	e0 92 68 00 	sts	0x0068, r14	; 0x800068 <current_proc>
+ 2b2:	02 c0       	rjmp	.+4      	; 0x2b8 <main+0x10c>
+				}else{
+					current_proc = 2;	//Only No2 is enabled
+ 2b4:	00 93 68 00 	sts	0x0068, r16	; 0x800068 <current_proc>
+				}
+				context_switch_flag = FALSE;
+ 2b8:	10 92 69 00 	sts	0x0069, r1	; 0x800069 <context_switch_flag>
+ 2bc:	89 cf       	rjmp	.-238    	; 0x1d0 <main+0x24>
+			}
+		}else if(func_num[2] == TRUE  && current_proc == 3){
+ 2be:	8a 81       	ldd	r24, Y+2	; 0x02
+ 2c0:	81 30       	cpi	r24, 0x01	; 1
+ 2c2:	09 f0       	breq	.+2      	; 0x2c6 <main+0x11a>
+ 2c4:	85 cf       	rjmp	.-246    	; 0x1d0 <main+0x24>
+ 2c6:	80 91 68 00 	lds	r24, 0x0068	; 0x800068 <current_proc>
+ 2ca:	83 30       	cpi	r24, 0x03	; 3
+ 2cc:	09 f0       	breq	.+2      	; 0x2d0 <main+0x124>
+ 2ce:	80 cf       	rjmp	.-256    	; 0x1d0 <main+0x24>
+			Process_3();
+ 2d0:	0e 94 a1 00 	call	0x142	; 0x142 <Process_3>
+			if(context_switch_flag == TRUE){				
+ 2d4:	80 91 69 00 	lds	r24, 0x0069	; 0x800069 <context_switch_flag>
+ 2d8:	81 30       	cpi	r24, 0x01	; 1
+ 2da:	09 f0       	breq	.+2      	; 0x2de <main+0x132>
+ 2dc:	79 cf       	rjmp	.-270    	; 0x1d0 <main+0x24>
+				CHECK_ENABLES();									//Changing enables
+ 2de:	0e 94 b1 00 	call	0x162	; 0x162 <CHECK_ENABLES>
+				if(func_num[1] == TRUE && func_num[0] == FALSE){	//Only process 2 and 3 are enabled
+ 2e2:	89 81       	ldd	r24, Y+1	; 0x01
+ 2e4:	81 30       	cpi	r24, 0x01	; 1
+ 2e6:	61 f4       	brne	.+24     	; 0x300 <main+0x154>
+ 2e8:	88 81       	ld	r24, Y
+ 2ea:	81 11       	cpse	r24, r1
+ 2ec:	09 c0       	rjmp	.+18     	; 0x300 <main+0x154>
+					process_data_3 = PORTA;							// Store PORTA to process_data_2
+ 2ee:	8b b3       	in	r24, 0x1b	; 27
+ 2f0:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <process_data_3>
+					PORTA = process_data_2;							// Display process_data_1 to PORTA
+ 2f4:	80 91 6c 00 	lds	r24, 0x006C	; 0x80006c <process_data_2>
+ 2f8:	8b bb       	out	0x1b, r24	; 27
+					current_proc = 2;
+ 2fa:	00 93 68 00 	sts	0x0068, r16	; 0x800068 <current_proc>
+ 2fe:	0e c0       	rjmp	.+28     	; 0x31c <main+0x170>
+					
+				}else if(func_num[0] == TRUE){	//Next process is No1
+ 300:	88 81       	ld	r24, Y
+ 302:	81 30       	cpi	r24, 0x01	; 1
+ 304:	49 f4       	brne	.+18     	; 0x318 <main+0x16c>
+					process_data_3 = PORTA;		// Store PORTA to process_data_1
+ 306:	8b b3       	in	r24, 0x1b	; 27
+ 308:	80 93 6b 00 	sts	0x006B, r24	; 0x80006b <process_data_3>
+					PORTA = process_data_1;		// Display process_data_3 to PORTA
+ 30c:	80 91 6d 00 	lds	r24, 0x006D	; 0x80006d <process_data_1>
+ 310:	8b bb       	out	0x1b, r24	; 27
+					current_proc = 1;
+ 312:	10 93 68 00 	sts	0x0068, r17	; 0x800068 <current_proc>
+ 316:	02 c0       	rjmp	.+4      	; 0x31c <main+0x170>
+				}else{
+					current_proc = 3;	//Only No1 is enabled
+ 318:	e0 92 68 00 	sts	0x0068, r14	; 0x800068 <current_proc>
+				}
+				context_switch_flag = FALSE;
+ 31c:	10 92 69 00 	sts	0x0069, r1	; 0x800069 <context_switch_flag>
+ 320:	57 cf       	rjmp	.-338    	; 0x1d0 <main+0x24>
+
+00000322 <__vector_8>:
+			}
+		}
+	}
+}
+
+ISR(TIMER1_OVF_vect){
+ 322:	1f 92       	push	r1
+ 324:	0f 92       	push	r0
+ 326:	0f b6       	in	r0, 0x3f	; 63
+ 328:	0f 92       	push	r0
+ 32a:	11 24       	eor	r1, r1
+ 32c:	8f 93       	push	r24
+ 32e:	9f 93       	push	r25
+	TCNT1 = 0xC2F6;					// 0xF2F6
+ 330:	86 ef       	ldi	r24, 0xF6	; 246
+ 332:	92 ec       	ldi	r25, 0xC2	; 194
+ 334:	9d bd       	out	0x2d, r25	; 45
+ 336:	8c bd       	out	0x2c, r24	; 44
+	context_switch_flag = TRUE;		//This flag indicates that we have to make context switch
+ 338:	81 e0       	ldi	r24, 0x01	; 1
+ 33a:	80 93 69 00 	sts	0x0069, r24	; 0x800069 <context_switch_flag>
+}
+ 33e:	9f 91       	pop	r25
+ 340:	8f 91       	pop	r24
+ 342:	0f 90       	pop	r0
+ 344:	0f be       	out	0x3f, r0	; 63
+ 346:	0f 90       	pop	r0
+ 348:	1f 90       	pop	r1
+ 34a:	18 95       	reti
+
+0000034c <__vector_9>:
+
+ISR(TIMER0_OVF_vect){
+ 34c:	1f 92       	push	r1
+ 34e:	0f 92       	push	r0
+ 350:	0f b6       	in	r0, 0x3f	; 63
+ 352:	0f 92       	push	r0
+ 354:	11 24       	eor	r1, r1
+ 356:	8f 93       	push	r24
+	TCNT0 = 0x63;
+ 358:	83 e6       	ldi	r24, 0x63	; 99
+ 35a:	82 bf       	out	0x32, r24	; 50
+	timer_flag = FALSE;	//This flag indicates that current process has to change PORTA
+ 35c:	10 92 6a 00 	sts	0x006A, r1	; 0x80006a <timer_flag>
+}
+ 360:	8f 91       	pop	r24
+ 362:	0f 90       	pop	r0
+ 364:	0f be       	out	0x3f, r0	; 63
+ 366:	0f 90       	pop	r0
+ 368:	1f 90       	pop	r1
+ 36a:	18 95       	reti
+
+0000036c <__vector_11>:
+
+ISR(USART_RXC_vect){
+ 36c:	1f 92       	push	r1
+ 36e:	0f 92       	push	r0
+ 370:	0f b6       	in	r0, 0x3f	; 63
+ 372:	0f 92       	push	r0
+ 374:	11 24       	eor	r1, r1
+ 376:	2f 93       	push	r18
+ 378:	3f 93       	push	r19
+ 37a:	4f 93       	push	r20
+ 37c:	5f 93       	push	r21
+ 37e:	6f 93       	push	r22
+ 380:	7f 93       	push	r23
+ 382:	8f 93       	push	r24
+ 384:	9f 93       	push	r25
+ 386:	af 93       	push	r26
+ 388:	bf 93       	push	r27
+ 38a:	ef 93       	push	r30
+ 38c:	ff 93       	push	r31
+	uint8_t current_char = USART_RECEIVE();
+ 38e:	0e 94 76 00 	call	0xec	; 0xec <USART_RECEIVE>
+	
+	if(prev_instr_char == 0x00 && current_char == S_HEX){
+ 392:	90 91 6e 00 	lds	r25, 0x006E	; 0x80006e <prev_instr_char>
+ 396:	91 11       	cpse	r25, r1
+ 398:	0b c0       	rjmp	.+22     	; 0x3b0 <__vector_11+0x44>
+ 39a:	83 35       	cpi	r24, 0x53	; 83
+ 39c:	19 f4       	brne	.+6      	; 0x3a4 <__vector_11+0x38>
+		prev_instr_char = S_HEX;
+ 39e:	80 93 6e 00 	sts	0x006E, r24	; 0x80006e <prev_instr_char>
+ 3a2:	57 c0       	rjmp	.+174    	; 0x452 <__LOCK_REGION_LENGTH__+0x52>
+		}else if(prev_instr_char == 0x00 && current_char == Q_HEX){
+ 3a4:	81 35       	cpi	r24, 0x51	; 81
+ 3a6:	09 f0       	breq	.+2      	; 0x3aa <__vector_11+0x3e>
+ 3a8:	52 c0       	rjmp	.+164    	; 0x44e <__LOCK_REGION_LENGTH__+0x4e>
+		prev_instr_char = Q_HEX;
+ 3aa:	80 93 6e 00 	sts	0x006E, r24	; 0x80006e <prev_instr_char>
+ 3ae:	51 c0       	rjmp	.+162    	; 0x452 <__LOCK_REGION_LENGTH__+0x52>
+	}else if(prev_instr_char == S_HEX && (current_char > 0x30 && current_char < 0x34)){
+ 3b0:	93 35       	cpi	r25, 0x53	; 83
+ 3b2:	f1 f4       	brne	.+60     	; 0x3f0 <__vector_11+0x84>
+ 3b4:	9f ec       	ldi	r25, 0xCF	; 207
+ 3b6:	98 0f       	add	r25, r24
+ 3b8:	93 30       	cpi	r25, 0x03	; 3
+ 3ba:	08 f0       	brcs	.+2      	; 0x3be <__vector_11+0x52>
+ 3bc:	48 c0       	rjmp	.+144    	; 0x44e <__LOCK_REGION_LENGTH__+0x4e>
+		if(current_char == 0x31){
+ 3be:	81 33       	cpi	r24, 0x31	; 49
+ 3c0:	31 f4       	brne	.+12     	; 0x3ce <__vector_11+0x62>
+			func_enable |= (1<<0);	//Set "1" bit 0 of this "register"  
+ 3c2:	80 91 67 00 	lds	r24, 0x0067	; 0x800067 <func_enable>
+ 3c6:	81 60       	ori	r24, 0x01	; 1
+ 3c8:	80 93 67 00 	sts	0x0067, r24	; 0x800067 <func_enable>
+ 3cc:	0d c0       	rjmp	.+26     	; 0x3e8 <__vector_11+0x7c>
+		}else if(current_char == 0x32){
+ 3ce:	82 33       	cpi	r24, 0x32	; 50
+ 3d0:	31 f4       	brne	.+12     	; 0x3de <__vector_11+0x72>
+			func_enable |= (1<<1);	//Set "1" bit 1 of this "register"  
+ 3d2:	80 91 67 00 	lds	r24, 0x0067	; 0x800067 <func_enable>
+ 3d6:	82 60       	ori	r24, 0x02	; 2
+ 3d8:	80 93 67 00 	sts	0x0067, r24	; 0x800067 <func_enable>
+ 3dc:	05 c0       	rjmp	.+10     	; 0x3e8 <__vector_11+0x7c>
+		}else{
+			func_enable |= (1<<2);	//Set "1" bit 2 of this "register"  
+ 3de:	80 91 67 00 	lds	r24, 0x0067	; 0x800067 <func_enable>
+ 3e2:	84 60       	ori	r24, 0x04	; 4
+ 3e4:	80 93 67 00 	sts	0x0067, r24	; 0x800067 <func_enable>
+		}
+		prev_instr_char = X_HEX;
+ 3e8:	88 e5       	ldi	r24, 0x58	; 88
+ 3ea:	80 93 6e 00 	sts	0x006E, r24	; 0x80006e <prev_instr_char>
+ 3ee:	31 c0       	rjmp	.+98     	; 0x452 <__LOCK_REGION_LENGTH__+0x52>
+		
+	}else if(prev_instr_char == Q_HEX && (current_char > 0x30 && current_char < 0x34)){
+ 3f0:	91 35       	cpi	r25, 0x51	; 81
+ 3f2:	e9 f4       	brne	.+58     	; 0x42e <__LOCK_REGION_LENGTH__+0x2e>
+ 3f4:	9f ec       	ldi	r25, 0xCF	; 207
+ 3f6:	98 0f       	add	r25, r24
+ 3f8:	93 30       	cpi	r25, 0x03	; 3
+ 3fa:	48 f5       	brcc	.+82     	; 0x44e <__LOCK_REGION_LENGTH__+0x4e>
+		if(current_char == 0x31){
+ 3fc:	81 33       	cpi	r24, 0x31	; 49
+ 3fe:	31 f4       	brne	.+12     	; 0x40c <__LOCK_REGION_LENGTH__+0xc>
+			func_enable &= ~(1<<0);	//Clear bit 0 of this "register"  
+ 400:	80 91 67 00 	lds	r24, 0x0067	; 0x800067 <func_enable>
+ 404:	8e 7f       	andi	r24, 0xFE	; 254
+ 406:	80 93 67 00 	sts	0x0067, r24	; 0x800067 <func_enable>
+ 40a:	0d c0       	rjmp	.+26     	; 0x426 <__LOCK_REGION_LENGTH__+0x26>
+		}else if(current_char == 0x32){
+ 40c:	82 33       	cpi	r24, 0x32	; 50
+ 40e:	31 f4       	brne	.+12     	; 0x41c <__LOCK_REGION_LENGTH__+0x1c>
+			func_enable &= ~(1<<1);	//Set "1" bit 0 of this "register"  
+ 410:	80 91 67 00 	lds	r24, 0x0067	; 0x800067 <func_enable>
+ 414:	8d 7f       	andi	r24, 0xFD	; 253
+ 416:	80 93 67 00 	sts	0x0067, r24	; 0x800067 <func_enable>
+ 41a:	05 c0       	rjmp	.+10     	; 0x426 <__LOCK_REGION_LENGTH__+0x26>
+		}else{
+			func_enable &= ~(1<<2);	//Set "1" bit 0 of this "register"  
+ 41c:	80 91 67 00 	lds	r24, 0x0067	; 0x800067 <func_enable>
+ 420:	8b 7f       	andi	r24, 0xFB	; 251
+ 422:	80 93 67 00 	sts	0x0067, r24	; 0x800067 <func_enable>
+		}
+		prev_instr_char = X_HEX;
+ 426:	88 e5       	ldi	r24, 0x58	; 88
+ 428:	80 93 6e 00 	sts	0x006E, r24	; 0x80006e <prev_instr_char>
+ 42c:	12 c0       	rjmp	.+36     	; 0x452 <__LOCK_REGION_LENGTH__+0x52>
+		
+	}else if(prev_instr_char == X_HEX && current_char == CR_HEX){
+ 42e:	98 35       	cpi	r25, 0x58	; 88
+ 430:	29 f4       	brne	.+10     	; 0x43c <__LOCK_REGION_LENGTH__+0x3c>
+ 432:	8d 30       	cpi	r24, 0x0D	; 13
+ 434:	61 f4       	brne	.+24     	; 0x44e <__LOCK_REGION_LENGTH__+0x4e>
+		prev_instr_char = CR_HEX;
+ 436:	80 93 6e 00 	sts	0x006E, r24	; 0x80006e <prev_instr_char>
+ 43a:	0b c0       	rjmp	.+22     	; 0x452 <__LOCK_REGION_LENGTH__+0x52>
+		
+	}else if(prev_instr_char == CR_HEX && current_char == LF_HEX){
+ 43c:	9d 30       	cpi	r25, 0x0D	; 13
+ 43e:	39 f4       	brne	.+14     	; 0x44e <__LOCK_REGION_LENGTH__+0x4e>
+ 440:	8a 30       	cpi	r24, 0x0A	; 10
+ 442:	29 f4       	brne	.+10     	; 0x44e <__LOCK_REGION_LENGTH__+0x4e>
+		prev_instr_char = LF_HEX;
+ 444:	80 93 6e 00 	sts	0x006E, r24	; 0x80006e <prev_instr_char>
+		USART_TRANSMIT();	//Send OK<CR><LF>
+ 448:	0e 94 68 00 	call	0xd0	; 0xd0 <USART_TRANSMIT>
+ 44c:	02 c0       	rjmp	.+4      	; 0x452 <__LOCK_REGION_LENGTH__+0x52>
+	}else{
+		prev_instr_char = 0x00;
+ 44e:	10 92 6e 00 	sts	0x006E, r1	; 0x80006e <prev_instr_char>
+	}
+ 452:	ff 91       	pop	r31
+ 454:	ef 91       	pop	r30
+ 456:	bf 91       	pop	r27
+ 458:	af 91       	pop	r26
+ 45a:	9f 91       	pop	r25
+ 45c:	8f 91       	pop	r24
+ 45e:	7f 91       	pop	r23
+ 460:	6f 91       	pop	r22
+ 462:	5f 91       	pop	r21
+ 464:	4f 91       	pop	r20
+ 466:	3f 91       	pop	r19
+ 468:	2f 91       	pop	r18
+ 46a:	0f 90       	pop	r0
+ 46c:	0f be       	out	0x3f, r0	; 63
+ 46e:	0f 90       	pop	r0
+ 470:	1f 90       	pop	r1
+ 472:	18 95       	reti
+
+00000474 <_exit>:
+ 474:	f8 94       	cli
+
+00000476 <__stop_program>:
+ 476:	ff cf       	rjmp	.-2      	; 0x476 <__stop_program>
