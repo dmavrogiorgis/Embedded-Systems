@@ -1,0 +1,14 @@
+#4000
+R15 = 0x43
+UCSRA = 0b10000000
+#2000
+R15 = 0x1D
+UCSRA = 0b10000000
+#2000
+R15 = 0x13
+UCSRA = 0b10000000
+
+$log TCNT2
+$startlog lab6.log
+#70000
+$stoplog
