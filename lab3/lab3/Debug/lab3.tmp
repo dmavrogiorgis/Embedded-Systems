@@ -1,0 +1,54 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega16"</DEVICE>
+ <WORKING_DIR>D:\Atmel Studio\lab3\lab3\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>D:\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>D:\Atmel Studio\lab3\lab3\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>D:\Atmel Studio\lab3\lab3\Debug\lab3.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>lab3.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>lab3.map</FILE>
+  <FILE>lab3.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <seg_dec_addr><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>10</LINE></seg_dec_addr>
+  <data_addr><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>12</LINE></data_addr>
+  <ok_msg_addr><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>14</LINE></ok_msg_addr>
+  <MEM_TCNT_INIT><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>39</LINE></MEM_TCNT_INIT>
+  <TIMER0_OVF><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>208</LINE></TIMER0_OVF>
+  <USART_RXC><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>245</LINE></USART_RXC>
+  <MEM_CLEAR><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>142</LINE></MEM_CLEAR>
+  <USART_INIT><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>119</LINE></USART_INIT>
+  <main><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>138</LINE></main>
+  <while_clear><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>148</LINE></while_clear>
+  <MEM_SHIFT><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>154</LINE></MEM_SHIFT>
+  <while_shift><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>162</LINE></while_shift>
+  <SEND_OK><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>170</LINE></SEND_OK>
+  <USART_T><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>175</LINE></USART_T>
+  <GETC><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>188</LINE></GETC>
+  <PUTC><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>198</LINE></PUTC>
+  <done><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>214</LINE></done>
+  <else><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>232</LINE></else>
+  <done1><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>236</LINE></done1>
+  <done_1><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>254</LINE></done_1>
+  <done_2><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>265</LINE></done_2>
+  <if_1><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>261</LINE></if_1>
+  <done_3><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>272</LINE></done_3>
+  <done_4><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>284</LINE></done_4>
+  <if_2><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>281</LINE></if_2>
+  <done_5><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>299</LINE></done_5>
+  <if_3><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>293</LINE></if_3>
+  <done_6><FILE>D:\Atmel Studio\lab3\lab3\main.asm</FILE><LINE>306</LINE></done_6>
+ </LABELS>
+</ASSEMBLER_INFO>
