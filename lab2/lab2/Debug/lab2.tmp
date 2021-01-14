@@ -1,0 +1,34 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega16"</DEVICE>
+ <WORKING_DIR>D:\Atmel Studio\lab2\lab2\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>D:\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>D:\Atmel Studio\lab2\lab2\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m16def.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>D:\Atmel Studio\lab2\lab2\Debug\lab2.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>lab2.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>lab2.map</FILE>
+  <FILE>lab2.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <seg_dec_addr><FILE>D:\Atmel Studio\lab2\lab2\main.asm</FILE><LINE>12</LINE></seg_dec_addr>
+  <data_addr><FILE>D:\Atmel Studio\lab2\lab2\main.asm</FILE><LINE>14</LINE></data_addr>
+  <start><FILE>D:\Atmel Studio\lab2\lab2\main.asm</FILE><LINE>24</LINE></start>
+  <handler><FILE>D:\Atmel Studio\lab2\lab2\main.asm</FILE><LINE>119</LINE></handler>
+  <main><FILE>D:\Atmel Studio\lab2\lab2\main.asm</FILE><LINE>115</LINE></main>
+  <done><FILE>D:\Atmel Studio\lab2\lab2\main.asm</FILE><LINE>125</LINE></done>
+  <else><FILE>D:\Atmel Studio\lab2\lab2\main.asm</FILE><LINE>142</LINE></else>
+  <done1><FILE>D:\Atmel Studio\lab2\lab2\main.asm</FILE><LINE>146</LINE></done1>
+ </LABELS>
+</ASSEMBLER_INFO>
